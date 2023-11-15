@@ -1,53 +1,50 @@
 using System;
-using System.IO;
 
 class Program
 {
     static void Main(string[] args)
-    {
-        Journal theJournal = new Journal();
-        var selection = "";
+    {   
+        
+        Journal journal = new Journal();
+        string answer;
+        
 
         do
         {
-            Entry anEntry = new Entry();
+            
+            Console.WriteLine("1) Load Journal");
+            Console.WriteLine("2) New Entry");
+            Console.WriteLine("3) Display All Entries");
+            Console.WriteLine("4) Save Journal");
+            Console.WriteLine("5) Exit");
+            Console.Write("\nPlease make your selection: ");
+            answer = Console.ReadLine();
 
-            Console.WriteLine($"1. Open Journal");
-            Console.WriteLine("2. New Journal Entry");
-            Console.WriteLine("3. Display Entries");
-            Console.WriteLine("4. Save Journal");
-            Console.WriteLine("5. Exit");
-            Console.Write("Please Select a number: ");
-            selection = Console.ReadLine();
-
-            if (selection == "1")
+            if (answer == "1")
             {
-                Console.Write("\nPlease specify the file you would like to open: ");
-                string oldJournal = Console.ReadLine();
-                theJournal.LoadFromFile(oldJournal);
+                Console.Write("What is the name of the file you would like to load? ");
+                string nameFile = Console.ReadLine();
+                journal.LoadFromFile(nameFile);
             }
-            else if (selection == "2")
+            else if (answer == "2")
             {
-                Console.WriteLine("");
-                Console.WriteLine(anEntry._date);
-                Console.WriteLine(anEntry._questionText);
-                anEntry._entryText = Console.ReadLine();
-                theJournal.AddEntry(anEntry);
+                Entry thisEntry = new Entry();
+                thisEntry.CurrentEntry();
+                journal.AddEntry(thisEntry);
+            }
+            else if (answer == "3")
+            {
+                journal.DisplayAll();
                 Console.WriteLine("");
             }
-            else if (selection == "3")
+            else if (answer == "4")
             {
-                theJournal.DisplayAll();
-                Console.WriteLine("");
+                Console.Write("What is the name of your file you would like to save to? ");
+                string saveFile = Console.ReadLine();
+                journal.SaveToFile(saveFile);
             }
-            else if (selection == "4")
-            {
-                Console.Write("\nPlease specify the file you would like to save to: ");
-                string jFile = Console.ReadLine();
-                theJournal.SaveToFile(jFile);
-            }
-        }while (selection != "5");
-    }
+        }while (answer != "5");
+    }  
 }
 
 

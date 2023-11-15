@@ -6,19 +6,24 @@ public class Entry
 
     public Entry()
     {
-        var curTime = DateTime.Now;
-        _date = curTime.ToShortDateString();
+      DateTime curTime = DateTime.Now;
+      _date = curTime.ToShortDateString();
 
-        var aQuestion = new Questions();
-        _questionText = aQuestion.GetRandomQuestion();
+      var aQuestion = new Questions();
+      _questionText = aQuestion.GetRandomQuestion();
     }
 
-    
-    
+    public void CurrentEntry()
+    {
+        Console.WriteLine($"\n{_date}\n{_questionText}");
+        _entryText = Console.ReadLine();
+        Console.WriteLine("");
+    }
+
+     
 
     public void Display()
     {
-        Console.WriteLine("");
-        Console.WriteLine($"{_date}\n{_questionText}\n{_entryText}");
+        Console.WriteLine($"\n{_date}\n{_questionText}\n{_entryText}");
     }
 }
