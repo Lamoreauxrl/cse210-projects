@@ -1,4 +1,3 @@
-using System.IO;
 
 public class Journal
 {
@@ -23,7 +22,7 @@ public class Journal
       //Console.Write("What is the name of the file you would lik to save to: ");
       string fileName = file;
 
-      using (StreamWriter writeFile = new StreamWriter(@"C:\Users\lamon\OneDrive\Documents\BYU-Idaho\cse210\cse210-projects\prove\Develop02\" + fileName))
+      using (StreamWriter writeFile = new StreamWriter(fileName))
       {
          foreach (Entry jEntry in _entries)
          {
@@ -37,7 +36,7 @@ public class Journal
       _entries.Clear();
       string filename = file;
 
-      string[] jEntries = System.IO.File.ReadAllLines(@"C:\Users\lamon\OneDrive\Documents\BYU-Idaho\cse210\cse210-projects\prove\Develop02\" + filename);
+      string[] jEntries = System.IO.File.ReadAllLines(filename);
 
       foreach (string jEntry in jEntries)
       {
