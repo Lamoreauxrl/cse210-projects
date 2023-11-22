@@ -21,7 +21,7 @@ class Program
 
             if (answer == "1")
             {
-                Console.Write("What is the name of the file you would like to load? ");
+                Console.Write("\nWhat is the name of the file you would like to load? ");
                 string nameFile = Console.ReadLine();
                 journal.LoadFromFile(nameFile);
                 Console.WriteLine("");
@@ -39,7 +39,7 @@ class Program
             }
             else if (answer == "4")
             {
-                Console.Write("What is the name of your file you would like to save to? ");
+                Console.Write("\nWhat is the name of your file you would like to save to? ");
                 string saveFile = Console.ReadLine();
                 journal.SaveToFile(saveFile);
                 Console.WriteLine("");

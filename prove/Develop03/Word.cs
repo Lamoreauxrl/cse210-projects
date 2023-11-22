@@ -1,4 +1,4 @@
-public class World
+public class Word
 {
     private string _word;
 
